@@ -6,7 +6,7 @@ target
 # JavaDoc
 doc
 
-# Cranfield
+# Cranfield collection
 cran/collection
 cran/docs/cran.*
 cran/queries/cran.*
