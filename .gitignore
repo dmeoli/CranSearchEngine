@@ -1,0 +1,18 @@
+# JetBrains IDE IntelliJ IDEA
+CranSearchEngine.iml
+target
+.idea
+
+# JavaDoc
+doc
+
+# Cranfield
+cran/collection
+cran/docs/cran.*
+cran/queries/cran.*
+cran/index/*.cfe
+cran/index/*.cfs
+cran/index/*.si
+cran/index/*.gen
+cran/index/segments*
+cran/index/*.lock

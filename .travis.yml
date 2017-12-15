@@ -1,0 +1,11 @@
+language: java
+
+jdk: oraclejdk9
+
+script: mvn clean package install
+
+after_success:
+  - cd cran
+  - tar zxvf collection.tar.gz
+  - cd ..
+  - java -jar target/CranSearchEngine-1.0-jar-with-dependencies.jar
