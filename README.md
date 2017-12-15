@@ -1,4 +1,4 @@
-# CranSearchEngine :mag: [![Build Status](https://travis-ci.org/DonatoMeoli/CranSearchEngine.svg?branch=master)](https://travis-ci.org/DonatoMeoli/CranSearchEngine)
+# CranSearchEngine [![Build Status](https://travis-ci.org/DonatoMeoli/CranSearchEngine.svg?branch=master)](https://travis-ci.org/DonatoMeoli/CranSearchEngine)
 
 CranSearchEngine is a search engine for the [Cranfield collection](http://ir.dcs.gla.ac.uk/resources/test_collections/cran) 
 developed during the Models and Methods for Information Retrieval course @ 
