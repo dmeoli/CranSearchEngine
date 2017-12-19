@@ -1,7 +1,7 @@
-package com.donato.retrieval;
+package edu.uniba.donato.meoli.retrieval;
 
-import com.donato.collection.CranDoc;
-import com.donato.collection.CranQuery;
+import edu.uniba.donato.meoli.collection.CranDoc;
+import edu.uniba.donato.meoli.collection.CranQuery;
 
 import java.io.*;
 

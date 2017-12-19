@@ -1,9 +1,9 @@
-package com.donato;
+package edu.uniba.donato.meoli;
 
-import com.donato.collection.CranQuery;
-import com.donato.retrieval.CranIndexer;
-import com.donato.retrieval.SearchEngine;
-import com.donato.retrieval.SearchResult;
+import edu.uniba.donato.meoli.collection.CranQuery;
+import edu.uniba.donato.meoli.retrieval.CranIndexer;
+import edu.uniba.donato.meoli.retrieval.SearchEngine;
+import edu.uniba.donato.meoli.retrieval.SearchResult;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 import java.io.File;
@@ -18,6 +18,13 @@ import java.util.ArrayList;
  */
 public class CranSearcher {
 
+    public static final String CURRENT_DIR_PATH = System.getProperty("user.dir");
+    public static final String COLLECTION_PATH = CURRENT_DIR_PATH + "/cran/collection";
+    public static final String DOCS_PATH = CURRENT_DIR_PATH + "/cran/docs";
+    public static final String INDEX_PATH = CURRENT_DIR_PATH + "/cran/index";
+    public static final String QUERIES_PATH = CURRENT_DIR_PATH + "/cran/queries";
+    public static final String RESULT_PATH = CURRENT_DIR_PATH + "/cran";
+
     /**
      * Funzione main per il calcolo dei risultati delle 225 query sui 1400 documenti della collezione Cranfield.
      * @param args array di stringhe in cui vengono memorizzati i parametri passati al programma
@@ -26,20 +33,13 @@ public class CranSearcher {
      */
     public static void main(String[] args) throws IOException, ParseException {
 
-        final String currentDirPath = System.getProperty("user.dir");
-        final String collectionPath = currentDirPath + "/cran/collection";
-        final String docsPath = currentDirPath + "/cran/docs";
-        final String indexPath = currentDirPath + "/cran/index";
-        final String queriesPath = currentDirPath + "/cran/queries";
-        final String resultPath = currentDirPath + "/cran";
-
-        CranIndexer cranIndexer = new CranIndexer(collectionPath, docsPath, queriesPath);
-        SearchEngine searchEngine = new SearchEngine(indexPath, resultPath);
+        CranIndexer cranIndexer = new CranIndexer(COLLECTION_PATH, DOCS_PATH, QUERIES_PATH);
+        SearchEngine searchEngine = new SearchEngine(INDEX_PATH, RESULT_PATH);
 
         searchEngine.open();
 
         cranIndexer.createDocs();
-        File docsDir = new File(docsPath);
+        File docsDir = new File(DOCS_PATH);
         File[] filesDoc = docsDir.listFiles();
         int i = 0;
         for (File file: filesDoc) {
@@ -52,9 +52,9 @@ public class CranSearcher {
 
         cranIndexer.createQueries();
 
-        File queryDir = new File(queriesPath);
+        File queryDir = new File(QUERIES_PATH);
         File[] filesQuery = queryDir.listFiles();
-        FileWriter resultSet = new FileWriter(resultPath + "/results");
+        FileWriter resultSet = new FileWriter(RESULT_PATH + "/results");
         int j = 1;
         while (j < filesQuery.length) {
             CranQuery query = cranIndexer.makeQuery(j++);

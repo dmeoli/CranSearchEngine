@@ -1,4 +1,4 @@
-package com.donato.collection;
+package edu.uniba.donato.meoli.collection;
 
 /**
  * La classe {@code CranDoc} modella un documento della collezione Cranfield.

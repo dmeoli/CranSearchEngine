@@ -1,4 +1,4 @@
-package com.donato.analyzer;
+package edu.uniba.donato.meoli.analyzer;
 
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;
