@@ -1,7 +1,7 @@
-package edu.uniba.donato.meoli.retrieval;
+package edu.uniba.dib.donato.meoli.retrieval;
 
-import edu.uniba.donato.meoli.collection.CranDoc;
-import edu.uniba.donato.meoli.collection.CranQuery;
+import edu.uniba.dib.donato.meoli.collection.CranDoc;
+import edu.uniba.dib.donato.meoli.collection.CranQuery;
 
 import java.io.*;
 
@@ -74,8 +74,8 @@ public class CranIndexer {
     }
 
     /**
-     * Crea un oggetto {@code CranDoc} a partire dal documento della collezione Cranfield identificato dall'id
-     * specificato.
+     * Crea un oggetto {@code CranDoc} a partire dal documento della
+     * collezione Cranfield identificato dall'id specificato.
      * @param id numero identificativo del documento
      * @return oggetto {@code CranDoc} rappresentante il documento identificato dall'id specificato
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
@@ -130,8 +130,8 @@ public class CranIndexer {
     }
 
     /**
-     * Crea un oggetto {@code CranQuery} a partire dalla query della collezione Cranfield identificata dall'id
-     * specificato.
+     * Crea un oggetto {@code CranQuery} a partire dalla query della
+     * collezione Cranfield identificata dall'id specificato.
      * @param id numero identificativo della query
      * @return oggetto {@code CranQuery} rappresentante la query identificata dall'id specificato
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O

@@ -15,6 +15,18 @@ placed into cran directory by typing into the terminal:
 $ tar zxvf collection.tar.gz
 ```
 
+## Built with Maven
+
+```
+$ mvn clean compile assembly:single
+```
+
+## Running the JAR
+
+```
+$ java -jar target/CranSearchEngine-1.0-jar-with-dependencies.jar
+```
+
 ## Running the tests
 
 To view the [evaluation measure](https://en.wikipedia.org/wiki/Information_retrieval#Performance_and_correctness_measures) 

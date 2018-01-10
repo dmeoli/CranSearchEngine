@@ -1,6 +1,6 @@
-package edu.uniba.donato.meoli.retrieval;
+package edu.uniba.dib.donato.meoli.retrieval;
 
-import edu.uniba.donato.meoli.collection.CranDoc;
+import edu.uniba.dib.donato.meoli.collection.CranDoc;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.miscellaneous.PerFieldAnalyzerWrapper;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -77,7 +77,7 @@ public class SearchEngine {
      */
     public void open() throws IOException {
         Map<String, Analyzer> map = new HashMap<>();
-        map.put("Abstract", new edu.uniba.donato.meoli.analyzer.Analyzer(getStopWordSet()));
+        map.put("Abstract", new edu.uniba.dib.donato.meoli.analyzer.Analyzer(getStopWordSet()));
         Analyzer analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(Version.LATEST), map);
         Similarity similarity[] = {
                 new BM25Similarity(2, (float) 0.89),
@@ -128,7 +128,7 @@ public class SearchEngine {
         String fields[] = {"Title", "Abstract"};
         String queryString = QueryParser.escape(cranQuery);
         Map<String, Analyzer> map = new HashMap<>();
-        map.put("Abstract", new edu.uniba.donato.meoli.analyzer.Analyzer(getStopWordSet()));
+        map.put("Abstract", new edu.uniba.dib.donato.meoli.analyzer.Analyzer(getStopWordSet()));
         Analyzer analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(Version.LATEST), map);
         QueryParser queryParser = new MultiFieldQueryParser(fields, analyzer);
         Query query = queryParser.parse(queryString);

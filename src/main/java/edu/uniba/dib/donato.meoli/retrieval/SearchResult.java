@@ -1,4 +1,4 @@
-package edu.uniba.donato.meoli.retrieval;
+package edu.uniba.dib.donato.meoli.retrieval;
 
 /**
  * La classe {@code SearchResult} modella un risultato della ricerca.

@@ -1,9 +1,9 @@
-package edu.uniba.donato.meoli;
+package edu.uniba.dib.donato.meoli;
 
-import edu.uniba.donato.meoli.collection.CranQuery;
-import edu.uniba.donato.meoli.retrieval.CranIndexer;
-import edu.uniba.donato.meoli.retrieval.SearchEngine;
-import edu.uniba.donato.meoli.retrieval.SearchResult;
+import edu.uniba.dib.donato.meoli.collection.CranQuery;
+import edu.uniba.dib.donato.meoli.retrieval.CranIndexer;
+import edu.uniba.dib.donato.meoli.retrieval.SearchEngine;
+import edu.uniba.dib.donato.meoli.retrieval.SearchResult;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 import java.io.File;
@@ -12,18 +12,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * La classe {@code CranSearcher} fornisce i risultati della ricerca delle 225 query sui 1400 documenti della collezione
- * Cranfield.
+ * La classe {@code CranSearcher} fornisce i risultati della ricerca
+ * delle 225 query sui 1400 documenti della collezione Cranfield.
  * @author Donato Meoli
  */
 public class CranSearcher {
 
-    public static final String CURRENT_DIR_PATH = System.getProperty("user.dir");
-    public static final String COLLECTION_PATH = CURRENT_DIR_PATH + "/cran/collection";
-    public static final String DOCS_PATH = CURRENT_DIR_PATH + "/cran/docs";
-    public static final String INDEX_PATH = CURRENT_DIR_PATH + "/cran/index";
-    public static final String QUERIES_PATH = CURRENT_DIR_PATH + "/cran/queries";
-    public static final String RESULT_PATH = CURRENT_DIR_PATH + "/cran";
+    private static final String CURRENT_DIR_PATH = System.getProperty("user.dir");
+    private static final String COLLECTION_PATH = CURRENT_DIR_PATH + "/cran/collection";
+    private static final String DOCS_PATH = CURRENT_DIR_PATH + "/cran/docs";
+    private static final String INDEX_PATH = CURRENT_DIR_PATH + "/cran/index";
+    private static final String QUERIES_PATH = CURRENT_DIR_PATH + "/cran/queries";
+    private static final String RESULT_PATH = CURRENT_DIR_PATH + "/cran";
 
     /**
      * Funzione main per il calcolo dei risultati delle 225 query sui 1400 documenti della collezione Cranfield.

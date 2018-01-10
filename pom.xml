@@ -39,7 +39,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>edu.uniba.donato.meoli.CranSearcher</mainClass>
+                            <mainClass>edu.uniba.dib.donato.meoli.CranSearcher</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
