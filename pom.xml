@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>edu.uniba.donato.meoli</groupId>
-    <artifactId>CranSearchEngine</artifactId>
+    <groupId>edu.uniba.dib.donato.meoli</groupId>
+    <artifactId>cran-search-engine</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 

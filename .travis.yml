@@ -8,4 +8,4 @@ after_success:
   - cd cran
   - tar zxvf collection.tar.gz
   - cd ..
-  - java -jar target/CranSearchEngine-1.0-jar-with-dependencies.jar
+  - java -jar target/cran-search-engine-1.0-jar-with-dependencies.jar

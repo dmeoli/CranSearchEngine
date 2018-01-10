@@ -24,7 +24,7 @@ $ mvn clean compile assembly:single
 ## Running the JAR
 
 ```
-$ java -jar target/CranSearchEngine-1.0-jar-with-dependencies.jar
+$ java -jar target/cran-search-engine-1.0-jar-with-dependencies.jar
 ```
 
 ## Running the tests
