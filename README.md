@@ -33,7 +33,7 @@ To view the [evaluation measure](https://en.wikipedia.org/wiki/Information_retri
 such as Precision, Recall, MAP, GMAP, etc., go to the root folder and run the evaluation.sh file from the terminal by typing:
 
 ```
-$ bash ./evaluation.sh
+$ ./evaluation.sh
 ```
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
