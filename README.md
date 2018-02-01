@@ -1,15 +1,11 @@
 # CranSearchEngine [![Build Status](https://travis-ci.org/DonatoMeoli/CranSearchEngine.svg?branch=master)](https://travis-ci.org/DonatoMeoli/CranSearchEngine)
 
 CranSearchEngine is a search engine for the [Cranfield collection](http://ir.dcs.gla.ac.uk/resources/test_collections/cran) 
-developed during the Models and Methods for Information Retrieval course @ 
-[Department of Computer Science](http://www.uniba.it/ricerca/dipartimenti/informatica) @ 
-[University of Bari "Aldo Moro"](http://www.uniba.it/) under the supervision of Dr. 
-[Pierpaolo Basile](http://www.di.uniba.it/~swap/index.php?n=Membri.Basile).
+developed during the Models and Methods for Information Retrieval course @ [Department of Computer Science](http://www.uniba.it/ricerca/dipartimenti/informatica) @ [University of Bari "Aldo Moro"](http://www.uniba.it/) under the supervision of Dr. [Pierpaolo Basile](http://www.di.uniba.it/~swap/index.php?n=Membri.Basile).
 
 ## Prerequisites
 
-To run the software you must extract the collection folder from the collection.tar.gz archive 
-placed into cran directory by typing into the terminal:
+To run the software you must extract the collection folder from the collection.tar.gz archive placed into cran directory by typing into the terminal:
 
 ```
 $ tar zxvf collection.tar.gz
@@ -29,8 +25,7 @@ $ java -jar target/cran-search-engine-1.0-jar-with-dependencies.jar
 
 ## Running the tests
 
-To view the [evaluation measure](https://en.wikipedia.org/wiki/Information_retrieval#Performance_and_correctness_measures) 
-such as Precision, Recall, MAP, GMAP, etc., go to the root folder and run the evaluation.sh file from the terminal by typing:
+To view the [evaluation measure](https://en.wikipedia.org/wiki/Information_retrieval#Performance_and_correctness_measures) such as Precision, Recall, MAP, GMAP, etc., go to the root folder and run the evaluation.sh file from the terminal by typing:
 
 ```
 $ ./evaluation.sh
