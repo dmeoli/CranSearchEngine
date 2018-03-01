@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * La classe {@code CranSearcher} fornisce i risultati della ricerca
@@ -42,7 +43,7 @@ public class CranSearcher {
         File docsDir = new File(DOCS_PATH);
         File[] filesDoc = docsDir.listFiles();
         int i = 0;
-        for (File file: filesDoc) {
+        for (File file: Objects.requireNonNull(filesDoc)) {
             if (file.isFile() && !file.getPath().endsWith(".gitkeep")) {
                 searchEngine.addDocument(cranIndexer.makeDoc(++i));
             }
@@ -56,15 +57,15 @@ public class CranSearcher {
         File[] filesQuery = queryDir.listFiles();
         FileWriter resultSet = new FileWriter(RESULT_PATH + "/results");
         int j = 1;
-        while (j < filesQuery.length) {
+        while (j < Objects.requireNonNull(filesQuery).length) {
             CranQuery query = cranIndexer.makeQuery(j++);
             String result = "";
             String queryString = query.getAbstr();
             ArrayList<SearchResult> resultList = searchEngine.search(queryString);
             for (SearchResult currentResult: resultList) {
-                resultSet.append(query.getID()).append(" 0 ").append(currentResult.getID());
+                resultSet.append(query.getId()).append(" 0 ").append(currentResult.getId());
                 resultSet.append(" ").append(String.valueOf(currentResult.getRank())).append(" ");
-                resultSet.append(String.valueOf(currentResult.getScore())).append(" exp_0\n");
+                resultSet.append(String.valueOf(currentResult.getScore())).append(" exp_0").append("\n");
             }
             resultSet.write(result);
         }

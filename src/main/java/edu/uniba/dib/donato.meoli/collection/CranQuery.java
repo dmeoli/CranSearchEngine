@@ -23,7 +23,7 @@ public class CranQuery {
      * Restituisce il numero identificativo della query.
      * @return numero identificativo della query
      */
-    public String getID() {
+    public String getId() {
         return id;
     }
 

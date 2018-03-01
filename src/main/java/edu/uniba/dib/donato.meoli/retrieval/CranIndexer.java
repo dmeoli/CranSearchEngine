@@ -85,37 +85,37 @@ public class CranIndexer {
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String doc = bufferedReader.readLine();
         doc = bufferedReader.readLine();
-        String title = "";
-        String authors = "";
-        String department = "";
-        String abstr = "";
+        StringBuilder title = new StringBuilder();
+        StringBuilder authors = new StringBuilder();
+        StringBuilder department = new StringBuilder();
+        StringBuilder abstr = new StringBuilder();
         while (doc != null) {
             switch (doc) {
                 case ".T":
                     doc = bufferedReader.readLine();
                     while (!doc.equals(".A")) {
-                        title += doc + "\n";
+                        title.append(doc).append("\n");
                         doc = bufferedReader.readLine();
                     }
                     break;
                 case ".A":
                     doc = bufferedReader.readLine();
                     while (!doc.equals(".B")) {
-                        authors += doc + "\n";
+                        authors.append(doc).append("\n");
                         doc = bufferedReader.readLine();
                     }
                     break;
                 case ".B":
                     doc = bufferedReader.readLine();
                     while (!doc.equals(".W")) {
-                        department += doc + "\n";
+                        department.append(doc).append("\n");
                         doc = bufferedReader.readLine();
                     }
                     break;
                 case ".W":
                     doc = bufferedReader.readLine();
                     while (doc != null) {
-                        abstr += doc + "\n";
+                        abstr.append(doc).append("\n");
                         doc = bufferedReader.readLine();
                     }
                     break;
@@ -125,8 +125,7 @@ public class CranIndexer {
         }
         bufferedReader.close();
         String currentId = Integer.toString(id);
-        CranDoc cranDoc = new CranDoc(currentId, title, authors, department, abstr);
-        return cranDoc;
+        return new CranDoc(currentId, title.toString(), authors.toString(), department.toString(), abstr.toString());
     }
 
     /**
@@ -142,14 +141,13 @@ public class CranIndexer {
         String query = bufferedReader.readLine();
         query = bufferedReader.readLine();
         query = bufferedReader.readLine();
-        String abstr = "";
+        StringBuilder abstr = new StringBuilder();
         while (query != null) {
-            abstr += query + "\n";
+            abstr.append(query).append("\n");
             query = bufferedReader.readLine();
         }
         bufferedReader.close();
         String currentId = Integer.toString(id);
-        CranQuery cranQuery = new CranQuery(currentId, abstr);
-        return cranQuery;
+        return new CranQuery(currentId, abstr.toString());
     }
 }

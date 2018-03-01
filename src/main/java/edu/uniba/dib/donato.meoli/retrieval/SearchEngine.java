@@ -97,7 +97,7 @@ public class SearchEngine {
      */
     public void addDocument(CranDoc cranDoc) throws IOException {
         Document document = new Document();
-        document.add(new StringField("ID", cranDoc.getID(), Field.Store.YES));
+        document.add(new StringField("ID", cranDoc.getId(), Field.Store.YES));
         TextField titleField = new TextField("Title", cranDoc.getTitle(), Field.Store.NO);
         titleField.setBoost((float) 0.8);
         document.add(titleField);

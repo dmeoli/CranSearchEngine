@@ -32,7 +32,7 @@ public class CranDoc {
      * Restituisce il numero identificativo del documento.
      * @return numero identificativo del documento
      */
-    public String getID() {
+    public String getId() {
         return id;
     }
 

@@ -39,7 +39,6 @@ public class Analyzer extends StopwordAnalyzerBase {
         tokenStream = new StopFilter(Version.LATEST, tokenStream, stopwords);
         tokenStream = new KStemFilter(tokenStream);
         tokenStream = new PorterStemFilter(tokenStream);
-        TokenStreamComponents tokenStreamComponents = new TokenStreamComponents(tokenizer, tokenStream);
-        return tokenStreamComponents;
+        return new TokenStreamComponents(tokenizer, tokenStream);
     }
 }
