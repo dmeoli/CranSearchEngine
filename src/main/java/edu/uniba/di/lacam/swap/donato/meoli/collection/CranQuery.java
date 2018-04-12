@@ -1,4 +1,4 @@
-package edu.uniba.dib.donato.meoli.collection;
+package edu.uniba.di.lacam.swap.donato.meoli.collection;
 
 /**
  * La classe {@code CranQuery} modella una query per la collezione Cranfield.

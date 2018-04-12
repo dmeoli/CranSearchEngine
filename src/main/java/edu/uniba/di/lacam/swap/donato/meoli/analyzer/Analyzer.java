@@ -1,4 +1,4 @@
-package edu.uniba.dib.donato.meoli.analyzer;
+package edu.uniba.di.lacam.swap.donato.meoli.analyzer;
 
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;

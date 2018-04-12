@@ -1,6 +1,6 @@
 language: java
 
-jdk: oraclejdk9
+jdk: oraclejdk8
 
 script: mvn clean compile assembly:single
 

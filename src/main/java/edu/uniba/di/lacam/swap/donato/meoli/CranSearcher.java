@@ -1,9 +1,9 @@
-package edu.uniba.dib.donato.meoli;
+package edu.uniba.di.lacam.swap.donato.meoli;
 
-import edu.uniba.dib.donato.meoli.collection.CranQuery;
-import edu.uniba.dib.donato.meoli.retrieval.CranIndexer;
-import edu.uniba.dib.donato.meoli.retrieval.SearchEngine;
-import edu.uniba.dib.donato.meoli.retrieval.SearchResult;
+import edu.uniba.di.lacam.swap.donato.meoli.collection.CranQuery;
+import edu.uniba.di.lacam.swap.donato.meoli.retrieval.CranIndexer;
+import edu.uniba.di.lacam.swap.donato.meoli.retrieval.SearchEngine;
+import edu.uniba.di.lacam.swap.donato.meoli.retrieval.SearchResult;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 import java.io.File;

@@ -1,7 +1,7 @@
-package edu.uniba.dib.donato.meoli.retrieval;
+package edu.uniba.di.lacam.swap.donato.meoli.retrieval;
 
-import edu.uniba.dib.donato.meoli.collection.CranDoc;
-import edu.uniba.dib.donato.meoli.collection.CranQuery;
+import edu.uniba.di.lacam.swap.donato.meoli.collection.CranDoc;
+import edu.uniba.di.lacam.swap.donato.meoli.collection.CranQuery;
 
 import java.io.*;
 
