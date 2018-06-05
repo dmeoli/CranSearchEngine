@@ -14,16 +14,16 @@ $ tar zxvf collection.tar.gz
 ## Built with Maven
 
 ```
-$ mvn clean compile assembly:single
+$ mvn install
 ```
 
 ## Running the JAR
 
 ```
-$ java -jar target/cran-search-engine-1.0-jar-with-dependencies.jar
+$ java -jar target/cran-search-engine-1.0.jar
 ```
 
-## Running the tests
+## View Evaluaion Measures
 
 To view the [evaluation measure](https://en.wikipedia.org/wiki/Information_retrieval#Performance_and_correctness_measures) such as Precision, Recall, MAP, GMAP, etc., go to the root folder and run the evaluation.sh file from the terminal by typing:
 
