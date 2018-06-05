@@ -14,13 +14,13 @@ $ tar zxvf collection.tar.gz
 ## Built with Maven
 
 ```
-$ mvn install
+$ mvn install assembly:single
 ```
 
 ## Running the JAR
 
 ```
-$ java -jar target/cran-search-engine-1.0.jar
+$ java -jar target/cran-search-engine-1.0-jar-with-dependencies.jar
 ```
 
 ## View Evaluaion Measures

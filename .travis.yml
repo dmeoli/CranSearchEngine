@@ -2,10 +2,10 @@ language: java
 
 jdk: oraclejdk8
 
-script: mvn install
+script: mvn install assembly:single
 
 after_success:
   - cd cran
   - tar zxvf collection.tar.gz
   - cd ..
-  - java -jar target/cran-search-engine-1.0.jar
+  - java -jar target/cran-search-engine-1.0-jar-with-dependencies.jar
