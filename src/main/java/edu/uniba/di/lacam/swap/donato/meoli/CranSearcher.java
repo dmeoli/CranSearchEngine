@@ -63,7 +63,7 @@ public class CranSearcher {
             String queryString = query.getAbstr();
             ArrayList<SearchResult> resultList = searchEngine.search(queryString);
             for (SearchResult currentResult: resultList) {
-                resultSet.append(query.getId()).append(" 0 ").append(currentResult.getId());
+                resultSet.append(query.getID()).append(" 0 ").append(currentResult.getID());
                 resultSet.append(" ").append(String.valueOf(currentResult.getRank())).append(" ");
                 resultSet.append(String.valueOf(currentResult.getScore())).append(" exp_0").append("\n");
             }

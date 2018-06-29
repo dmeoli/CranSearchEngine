@@ -7,7 +7,6 @@ target
 doc
 
 # Cranfield collection
-cran/collection
 cran/docs/cran.*
 cran/queries/cran.*
 cran/index/*.cfe

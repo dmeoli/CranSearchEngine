@@ -3,18 +3,12 @@
 CranSearchEngine is a search engine for the [Cranfield collection](http://ir.dcs.gla.ac.uk/resources/test_collections/cran) 
 developed during the Information Retrieval course @ [Department of Computer Science](http://www.uniba.it/ricerca/dipartimenti/informatica) @ [University of Bari "Aldo Moro"](http://www.uniba.it/) under the supervision of dr. [Pierpaolo Basile](http://www.di.uniba.it/~swap/index.php?n=Membri.Basile).
 
-## Prerequisites
-
-To run the software you must extract the collection folder from the collection.tar.gz archive placed into cran directory by typing into the terminal:
-
-```
-$ tar zxvf collection.tar.gz
-```
-
 ## Built with Maven
 
+To create a jar file with dependencies:
+
 ```
-$ mvn install assembly:single
+$ mvn install
 ```
 
 ## Running the JAR
