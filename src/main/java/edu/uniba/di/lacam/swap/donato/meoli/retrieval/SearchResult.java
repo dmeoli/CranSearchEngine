@@ -2,6 +2,7 @@ package edu.uniba.di.lacam.swap.donato.meoli.retrieval;
 
 /**
  * La classe {@code SearchResult} modella un risultato della ricerca.
+ *
  * @author Donato Meoli
  */
 public class SearchResult {

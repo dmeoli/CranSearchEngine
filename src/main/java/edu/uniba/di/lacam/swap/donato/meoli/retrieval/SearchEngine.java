@@ -23,10 +23,7 @@ import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 import org.apache.lucene.document.Document;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +32,7 @@ import static org.apache.lucene.util.Version.LATEST;
 
 /**
  * La classe {@code SearchEngine} modella il motore di ricerca.
+ *
  * @author Donato Meoli
  */
 @SuppressWarnings({"deprecated", "deprecation"})
@@ -42,27 +40,24 @@ public class SearchEngine {
 
     private IndexWriter indexWriter;
     private FSDirectory indexDir;
-    private String resultPath;
 
     /**
      * Costruisce il motore di ricerca.
      * @param indexPath percorso della cartella contenente l'indice
-     * @param resultPath percorso della cartella contenente la collezione di documenti e di query Cranfield
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
-    public SearchEngine(String indexPath, String resultPath) throws IOException {
+    public SearchEngine(String indexPath) throws IOException {
         indexDir = FSDirectory.open(new File(indexPath));
-        this.resultPath = resultPath;
     }
 
     /**
-     * Restituisce l'elenco delle stopwords.
-     * @return elenco delle stopwords
+     * Restituisce l'elenco delle stopWords.
+     * @return elenco delle stopWords
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
     private CharArraySet getStopWordSet() throws IOException {
-        File file = new File(resultPath + "/stopwords");
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        InputStreamReader inputStreamReader = new InputStreamReader(getClass().getResourceAsStream(File.separator + "stopWords"));
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         CharArraySet stopWordSet = new CharArraySet(LATEST, 1000, true);
         while (bufferedReader.ready()) {
             stopWordSet.add(bufferedReader.readLine());

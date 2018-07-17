@@ -2,6 +2,7 @@ package edu.uniba.di.lacam.swap.donato.meoli.collection;
 
 /**
  * La classe {@code CranDoc} modella un documento della collezione Cranfield.
+ *
  * @author Donato Meoli
  */
 public class CranDoc {

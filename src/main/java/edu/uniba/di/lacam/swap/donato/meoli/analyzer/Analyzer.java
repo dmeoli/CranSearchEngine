@@ -16,7 +16,8 @@ import org.apache.lucene.util.Version;
 import java.io.Reader;
 
 /**
- * La classe {@code Analyzer} modella l'analizzatore basato su stopwords.
+ * La classe {@code Analyzer} modella l'analizzatore basato su stopWords.
+ *
  * @author Donato Meoli
  */
 @SuppressWarnings("deprecation")
@@ -24,10 +25,10 @@ public class Analyzer extends StopwordAnalyzerBase {
 
     /**
      * Costruisce l'analizzatore.
-     * @param stopwords elenco delle stopwords
+     * @param stopWords elenco delle stopWords
      */
-    public Analyzer(CharArraySet stopwords) {
-        super(Version.LATEST, stopwords);
+    public Analyzer(CharArraySet stopWords) {
+        super(Version.LATEST, stopWords);
     }
 
     @Override

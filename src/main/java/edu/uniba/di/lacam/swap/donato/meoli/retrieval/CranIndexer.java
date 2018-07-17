@@ -7,22 +7,20 @@ import java.io.*;
 
 /**
  * La classe {@code Indexer} modella l'indice invertito.
+ *
  * @author Donato Meoli
  */
 public class CranIndexer {
 
-    private String collectionPath;
     private String docsPath;
     private String queriesPath;
 
     /**
      * Costruisce l'indice invertito.
-     * @param collectionPath percorso della cartella contenente la collezione di documenti e di query Cranfield.
      * @param docsPath percorso della cartella contenente i 1400 documenti della collezione Cranfield
      * @param queriesPath percorso della cartella contenente le 225 query per la collezione Cranfield
      */
-    public CranIndexer(String collectionPath, String docsPath, String queriesPath) {
-        this.collectionPath = collectionPath;
+    public CranIndexer(String docsPath, String queriesPath) {
         this.docsPath = docsPath;
         this.queriesPath = queriesPath;
     }
@@ -32,12 +30,12 @@ public class CranIndexer {
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
     public void createDocs() throws IOException {
-        FileReader fileReader = new FileReader(new File(collectionPath + "/cran.all.1400"));
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        InputStreamReader inputStreamReader = new InputStreamReader(getClass().getResourceAsStream(File.separator + "cran.all.1400"));
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String doc = bufferedReader.readLine();
         int i = 1;
         while (doc != null) {
-            FileWriter fileWriter = new FileWriter(docsPath + "/cran.doc." + i);
+            FileWriter fileWriter = new FileWriter(docsPath + File.separator + "cran.doc." + i);
             fileWriter.append(doc).append("\n");
             doc = bufferedReader.readLine();
             while (doc != null && !doc.startsWith(".I")) {
@@ -55,12 +53,12 @@ public class CranIndexer {
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
     public void createQueries() throws IOException {
-        FileReader fileReader = new FileReader(new File(collectionPath + "/cran.qry"));
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        InputStreamReader inputStreamReader = new InputStreamReader(getClass().getResourceAsStream(File.separator + "cran.qry"));
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String query = bufferedReader.readLine();
         int i = 1;
         while (query != null) {
-            FileWriter fileWriter = new FileWriter(queriesPath + "/cran.qry." + i);
+            FileWriter fileWriter = new FileWriter(queriesPath + File.separator + "cran.qry." + i);
             fileWriter.append(query).append("\n");
             query = bufferedReader.readLine();
             while (query != null && !query.startsWith(".I")) {
@@ -81,7 +79,7 @@ public class CranIndexer {
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
     public CranDoc makeDoc(int id) throws IOException {
-        FileReader fileReader = new FileReader(new File(docsPath + "/cran.doc." + id));
+        FileReader fileReader = new FileReader(new File(docsPath + File.separator + "cran.doc." + id));
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String doc = bufferedReader.readLine();
         doc = bufferedReader.readLine();
@@ -136,7 +134,7 @@ public class CranIndexer {
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
     public CranQuery makeQuery(int id) throws IOException {
-        FileReader fileReader = new FileReader(new File(queriesPath + "/cran.qry." + id));
+        FileReader fileReader = new FileReader(new File(queriesPath + File.separator + "cran.qry." + id));
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String query = bufferedReader.readLine();
         query = bufferedReader.readLine();

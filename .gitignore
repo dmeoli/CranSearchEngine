@@ -12,6 +12,5 @@ cran/queries/cran.*
 cran/index/*.cfe
 cran/index/*.cfs
 cran/index/*.si
-cran/index/*.gen
 cran/index/segments*
 cran/index/*.lock

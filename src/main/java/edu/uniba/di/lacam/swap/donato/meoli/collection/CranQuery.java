@@ -2,6 +2,7 @@ package edu.uniba.di.lacam.swap.donato.meoli.collection;
 
 /**
  * La classe {@code CranQuery} modella una query per la collezione Cranfield.
+ *
  * @author Donato Meoli
  */
 public class CranQuery {
