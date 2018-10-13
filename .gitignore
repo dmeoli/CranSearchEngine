@@ -1,12 +1,12 @@
-# JetBrains IDE IntelliJ IDEA
+### IntelliJ IDEA ###
 CranSearchEngine.iml
 target
 .idea
 
-# JavaDoc
+### JavaDoc ###
 doc
 
-# Cranfield collection
+### Cranfield files ###
 cran/docs/cran.*
 cran/queries/cran.*
 cran/index/*.cfe
