@@ -43,6 +43,7 @@ public class SearchEngine {
 
     /**
      * Costruisce il motore di ricerca.
+     *
      * @param indexPath percorso della cartella contenente l'indice
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
@@ -52,6 +53,7 @@ public class SearchEngine {
 
     /**
      * Restituisce l'elenco delle stopWords.
+     *
      * @return elenco delle stopWords
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
@@ -68,6 +70,7 @@ public class SearchEngine {
 
     /**
      * Apre l'indice invertito.
+     *
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
     public void open() throws IOException {
@@ -87,6 +90,7 @@ public class SearchEngine {
 
     /**
      * Aggiunge un documento della collezione Cranfield all'indice invertito.
+     *
      * @param cranDoc documento della collezione Cranfield
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
@@ -106,9 +110,10 @@ public class SearchEngine {
 
     /**
      * Effettua la ricerca della query nella collezione Cranfield.
+     *
      * @param cranQuery query per la collezione Cranfield
      * @return risultati della ricerca
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @throws IOException    eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      * @throws ParseException eccezione sollevata in seguito ad un errore nel parsing della query
      */
     public ArrayList<SearchResult> search(String cranQuery) throws IOException, ParseException {
@@ -131,7 +136,7 @@ public class SearchEngine {
         ScoreDoc[] scoreDocs = topDocs.scoreDocs;
         ArrayList<SearchResult> resultDocs = new ArrayList<>();
         int i = 1;
-        for (ScoreDoc scoreDoc: scoreDocs) {
+        for (ScoreDoc scoreDoc : scoreDocs) {
             String currentID = indexSearcher.doc(scoreDoc.doc).get("ID");
             SearchResult currentDoc = new SearchResult(currentID, scoreDoc.score, i++);
             resultDocs.add(currentDoc);
@@ -141,6 +146,7 @@ public class SearchEngine {
 
     /**
      * Chiude l'indice invertito.
+     *
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
     public void close() throws IOException {

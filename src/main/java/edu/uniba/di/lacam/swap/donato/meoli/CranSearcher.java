@@ -28,8 +28,9 @@ public class CranSearcher {
 
     /**
      * Funzione main per il calcolo dei risultati delle 225 query sui 1400 documenti della collezione Cranfield.
+     *
      * @param args array di stringhe in cui vengono memorizzati i parametri passati al programma
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @throws IOException    eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      * @throws ParseException eccezione sollevata in seguito ad un errore nel parsing della query
      */
     public static void main(String[] args) throws IOException, ParseException {
@@ -43,7 +44,7 @@ public class CranSearcher {
         File docsDir = new File(DOCS_PATH);
         File[] filesDoc = docsDir.listFiles();
         int i = 0;
-        for (File file: Objects.requireNonNull(filesDoc)) {
+        for (File file : Objects.requireNonNull(filesDoc)) {
             if (file.isFile() && !file.getPath().endsWith(".gitkeep")) {
                 searchEngine.addDocument(cranIndexer.makeDoc(++i));
             }
@@ -62,7 +63,7 @@ public class CranSearcher {
             String result = "";
             String queryString = query.getAbstr();
             ArrayList<SearchResult> resultList = searchEngine.search(queryString);
-            for (SearchResult currentResult: resultList) {
+            for (SearchResult currentResult : resultList) {
                 resultSet.append(query.getID()).append(" 0 ").append(currentResult.getID());
                 resultSet.append(" ").append(String.valueOf(currentResult.getRank())).append(" ");
                 resultSet.append(String.valueOf(currentResult.getScore())).append(" exp_0").append("\n");

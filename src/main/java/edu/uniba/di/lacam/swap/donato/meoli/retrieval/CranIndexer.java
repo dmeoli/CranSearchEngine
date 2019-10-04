@@ -17,7 +17,8 @@ public class CranIndexer {
 
     /**
      * Costruisce l'indice invertito.
-     * @param docsPath percorso della cartella contenente i 1400 documenti della collezione Cranfield
+     *
+     * @param docsPath    percorso della cartella contenente i 1400 documenti della collezione Cranfield
      * @param queriesPath percorso della cartella contenente le 225 query per la collezione Cranfield
      */
     public CranIndexer(String docsPath, String queriesPath) {
@@ -27,6 +28,7 @@ public class CranIndexer {
 
     /**
      * Crea i 1400 documenti a partire dalla collezione di documenti Cranfield.
+     *
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
     public void createDocs() throws IOException {
@@ -50,6 +52,7 @@ public class CranIndexer {
 
     /**
      * Crea le 225 query a partire dalla collezione di query Cranfield.
+     *
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
      */
     public void createQueries() throws IOException {
@@ -74,6 +77,7 @@ public class CranIndexer {
     /**
      * Crea un oggetto {@code CranDoc} a partire dal documento della
      * collezione Cranfield identificato dall'id specificato.
+     *
      * @param id numero identificativo del documento
      * @return oggetto {@code CranDoc} rappresentante il documento identificato dall'id specificato
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
@@ -129,6 +133,7 @@ public class CranIndexer {
     /**
      * Crea un oggetto {@code CranQuery} a partire dalla query della
      * collezione Cranfield identificata dall'id specificato.
+     *
      * @param id numero identificativo della query
      * @return oggetto {@code CranQuery} rappresentante la query identificata dall'id specificato
      * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O

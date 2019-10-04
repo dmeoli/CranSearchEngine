@@ -12,7 +12,8 @@ public class CranQuery {
 
     /**
      * Costruisce una query per la collezione Cranfield.
-     * @param id numero identificativo della query
+     *
+     * @param id    numero identificativo della query
      * @param abstr abstract della query
      */
     public CranQuery(String id, String abstr) {
@@ -22,6 +23,7 @@ public class CranQuery {
 
     /**
      * Restituisce il numero identificativo della query.
+     *
      * @return numero identificativo della query
      */
     public String getID() {
@@ -30,6 +32,7 @@ public class CranQuery {
 
     /**
      * Restituisce l'abstract della query.
+     *
      * @return abstract della query
      */
     public String getAbstr() {

@@ -25,6 +25,7 @@ public class Analyzer extends StopwordAnalyzerBase {
 
     /**
      * Costruisce l'analizzatore.
+     *
      * @param stopWords elenco delle stopWords
      */
     public Analyzer(CharArraySet stopWords) {

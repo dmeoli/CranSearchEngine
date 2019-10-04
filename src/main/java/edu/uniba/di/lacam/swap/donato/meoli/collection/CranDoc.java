@@ -15,11 +15,12 @@ public class CranDoc {
 
     /**
      * Costruisce un documento della collezione Cranfield.
-     * @param id numero identificativo del documento
-     * @param title titolo del documento
-     * @param authors autore/i del documento
+     *
+     * @param id         numero identificativo del documento
+     * @param title      titolo del documento
+     * @param authors    autore/i del documento
      * @param department nome del dipartimento addetto alla stesura del documento
-     * @param abstr abstract del documento
+     * @param abstr      abstract del documento
      */
     public CranDoc(String id, String title, String authors, String department, String abstr) {
         this.id = id;
@@ -31,6 +32,7 @@ public class CranDoc {
 
     /**
      * Restituisce il numero identificativo del documento.
+     *
      * @return numero identificativo del documento
      */
     public String getID() {
@@ -39,6 +41,7 @@ public class CranDoc {
 
     /**
      * Restituisce il titolo del documento.
+     *
      * @return titolo del documento
      */
     public String getTitle() {
@@ -47,6 +50,7 @@ public class CranDoc {
 
     /**
      * Restituisce l'autore/gli autori del documento.
+     *
      * @return autore/i del documento
      */
     public String getAuthors() {
@@ -55,6 +59,7 @@ public class CranDoc {
 
     /**
      * Restituisce il nome del dipartimento addetto alla stesura del documento.
+     *
      * @return dipartimento addetto alla stesura del documento
      */
     public String getDepartment() {
@@ -63,6 +68,7 @@ public class CranDoc {
 
     /**
      * Restituisce l'abstract del documento.
+     *
      * @return abstract del documento
      */
     public String getAbstr() {
