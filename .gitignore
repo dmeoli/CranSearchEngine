@@ -1,12 +1,12 @@
-### IntelliJ IDEA ###
+# IntelliJ IDEA
 CranSearchEngine.iml
 target
 .idea
 
-### JavaDoc ###
+# JavaDoc
 doc
 
-### Cranfield files ###
+# Cranfield files
 cran/docs/cran.*
 cran/queries/cran.*
 cran/index/*.cfe
@@ -14,3 +14,5 @@ cran/index/*.cfs
 cran/index/*.si
 cran/index/segments*
 cran/index/*.lock
+
+cran/results

@@ -2,9 +2,9 @@ package edu.uniba.di.lacam.swap.donato.meoli.retrieval;
 
 import edu.uniba.di.lacam.swap.donato.meoli.collection.CranDoc;
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.miscellaneous.PerFieldAnalyzerWrapper;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
 
 /**
  * The {@code SearchEngine} class models the search engine.
@@ -99,12 +98,10 @@ public class SearchEngine {
         Document document = new Document();
         document.add(new StringField("ID", cranDoc.getID(), Field.Store.YES));
         TextField titleField = new TextField("Title", cranDoc.getTitle(), Field.Store.NO);
-        titleField.setBoost((float) 0.8);
         document.add(titleField);
         document.add(new TextField("Authors", cranDoc.getAuthors(), Field.Store.NO));
         document.add(new TextField("Department", cranDoc.getDepartment(), Field.Store.NO));
         TextField abstractField = new TextField("Abstract", cranDoc.getAbstr(), Field.Store.NO);
-        abstractField.setBoost((float) 1.2);
         document.add(abstractField);
         indexWriter.addDocument(document);
     }
