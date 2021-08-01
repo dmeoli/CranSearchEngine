@@ -11,34 +11,31 @@ import org.apache.lucene.analysis.standard.StandardFilter;
 import org.apache.lucene.analysis.standard.StandardTokenizer;
 import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.analysis.util.StopwordAnalyzerBase;
-import org.apache.lucene.util.Version;
-
-import java.io.Reader;
 
 /**
- * La classe {@code Analyzer} modella l'analizzatore basato su stopWords.
+ * The {@code Analyzer} class models the stopWords-based analyzer.
  *
  * @author Donato Meoli
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings("deprecated")
 public class Analyzer extends StopwordAnalyzerBase {
 
     /**
-     * Costruisce l'analizzatore.
+     * Build the analyzer.
      *
-     * @param stopWords elenco delle stopWords
+     * @param stopWords list of stopWords
      */
     public Analyzer(CharArraySet stopWords) {
-        super(Version.LATEST, stopWords);
+        super(stopWords);
     }
 
     @Override
-    protected TokenStreamComponents createComponents(String fieldName, Reader reader) {
-        Tokenizer tokenizer = new StandardTokenizer(reader);
-        TokenStream tokenStream = new StandardFilter(Version.LATEST, tokenizer);
+    protected TokenStreamComponents createComponents(String fieldName) {
+        Tokenizer tokenizer = new StandardTokenizer();
+        TokenStream tokenStream = new StandardFilter(tokenizer);
         tokenStream = new LowerCaseFilter(tokenStream);
         tokenStream = new EnglishPossessiveFilter(tokenStream);
-        tokenStream = new StopFilter(Version.LATEST, tokenStream, stopwords);
+        tokenStream = new StopFilter(tokenStream, stopwords);
         tokenStream = new KStemFilter(tokenStream);
         tokenStream = new PorterStemFilter(tokenStream);
         return new TokenStreamComponents(tokenizer, tokenStream);

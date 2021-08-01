@@ -1,19 +1,19 @@
 package edu.uniba.di.lacam.swap.donato.meoli.collection;
 
 /**
- * La classe {@code CranQuery} modella una query per la collezione Cranfield.
+ * The {@code CranQuery} class models a query for the Cranfield collection.
  *
  * @author Donato Meoli
  */
 public class CranQuery {
 
-    private String id;
-    private String abstr;
+    private final String id;
+    private final String abstr;
 
     /**
-     * Costruisce una query per la collezione Cranfield.
+     * Build a query for the Cranfield collection.
      *
-     * @param id    numero identificativo della query
+     * @param id    query identification number
      * @param abstr abstract della query
      */
     public CranQuery(String id, String abstr) {
@@ -22,18 +22,18 @@ public class CranQuery {
     }
 
     /**
-     * Restituisce il numero identificativo della query.
+     * Returns the query identification number.
      *
-     * @return numero identificativo della query
+     * @return query identification number
      */
     public String getID() {
         return id;
     }
 
     /**
-     * Restituisce l'abstract della query.
+     * Returns the abstract of the query.
      *
-     * @return abstract della query
+     * @return query abstract
      */
     public String getAbstr() {
         return abstr;

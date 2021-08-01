@@ -5,6 +5,7 @@ import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.miscellaneous.PerFieldAnalyzerWrapper;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.util.CharArraySet;
+import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
@@ -20,79 +21,79 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.similarities.*;
 import org.apache.lucene.store.FSDirectory;
-import org.apache.lucene.util.Version;
-import org.apache.lucene.document.Document;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
-import static org.apache.lucene.util.Version.LATEST;
 
 /**
- * La classe {@code SearchEngine} modella il motore di ricerca.
+ * The {@code SearchEngine} class models the search engine.
  *
  * @author Donato Meoli
  */
-@SuppressWarnings({"deprecated", "deprecation"})
+@SuppressWarnings("deprecated")
 public class SearchEngine {
 
     private IndexWriter indexWriter;
-    private FSDirectory indexDir;
+    private final FSDirectory indexDir;
 
     /**
-     * Costruisce il motore di ricerca.
+     * buildTheSearchEngine
      *
-     * @param indexPath percorso della cartella contenente l'indice
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @param indexPath path to the folder containing the index
+     * @throws IOException exception raised following a missed or interrupted IO operation
      */
     public SearchEngine(String indexPath) throws IOException {
-        indexDir = FSDirectory.open(new File(indexPath));
+        indexDir = FSDirectory.open(new File(indexPath).toPath());
     }
 
     /**
-     * Restituisce l'elenco delle stopWords.
+     * Returns the list of stopWords.
      *
-     * @return elenco delle stopWords
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @return list of stopWords
+     * @throws IOException exception raised following a missed or interrupted IO operation
      */
     private CharArraySet getStopWordSet() throws IOException {
-        InputStreamReader inputStreamReader = new InputStreamReader(getClass().getResourceAsStream(File.separator + "stopWords"));
+        InputStreamReader inputStreamReader = new InputStreamReader(
+                Objects.requireNonNull(getClass().getResourceAsStream(File.separator + "stopWords")));
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        CharArraySet stopWordSet = new CharArraySet(LATEST, 1000, true);
-        while (bufferedReader.ready()) {
-            stopWordSet.add(bufferedReader.readLine());
-        }
+        CharArraySet stopWordSet = new CharArraySet(1000, true);
+        while (bufferedReader.ready()) stopWordSet.add(bufferedReader.readLine());
         bufferedReader.close();
         return stopWordSet;
     }
 
     /**
-     * Apre l'indice invertito.
+     * Opens the inverted index.
      *
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @throws IOException exception raised following a missed or interrupted IO operation
      */
     public void open() throws IOException {
         Map<String, Analyzer> map = new HashMap<>();
         map.put("Abstract", new edu.uniba.di.lacam.swap.donato.meoli.analyzer.Analyzer(getStopWordSet()));
-        Analyzer analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(Version.LATEST), map);
-        Similarity similarity[] = {
+        Analyzer analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(), map);
+        Similarity[] similarity = {
                 new BM25Similarity(2, (float) 0.89),
                 new DFRSimilarity(new BasicModelIn(), new AfterEffectB(), new NormalizationH1()),
                 new LMDirichletSimilarity(1500)
         };
-        IndexWriterConfig config = new IndexWriterConfig(LATEST, analyzer);
+        IndexWriterConfig config = new IndexWriterConfig(analyzer);
         config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
         config.setSimilarity(new MultiSimilarity(similarity));
         indexWriter = new IndexWriter(indexDir, config);
     }
 
     /**
-     * Aggiunge un documento della collezione Cranfield all'indice invertito.
+     * Adds a document from the Cranfield collection to the inverted index.
      *
-     * @param cranDoc documento della collezione Cranfield
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @param cranDoc document from the Cranfield collection
+     * @throws IOException exception raised following a missed or interrupted IO operation
      */
     public void addDocument(CranDoc cranDoc) throws IOException {
         Document document = new Document();
@@ -109,27 +110,27 @@ public class SearchEngine {
     }
 
     /**
-     * Effettua la ricerca della query nella collezione Cranfield.
+     * Search the query in the Cranfield collection.
      *
-     * @param cranQuery query per la collezione Cranfield
-     * @return risultati della ricerca
-     * @throws IOException    eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
-     * @throws ParseException eccezione sollevata in seguito ad un errore nel parsing della query
+     * @param cranQuery query for the Cranfield collection
+     * @return search results
+     * @throws IOException    exception raised following a missed or interrupted IO operation
+     * @throws ParseException exception raised following an error in query parsing
      */
     public ArrayList<SearchResult> search(String cranQuery) throws IOException, ParseException {
         DirectoryReader indexReader = DirectoryReader.open(indexDir);
         IndexSearcher indexSearcher = new IndexSearcher(indexReader);
-        Similarity similarity[] = {
+        Similarity[] similarity = {
                 new BM25Similarity(2, (float) 0.89),
                 new DFRSimilarity(new BasicModelIn(), new AfterEffectB(), new NormalizationH1()),
                 new LMDirichletSimilarity(1500)
         };
         indexSearcher.setSimilarity(new MultiSimilarity(similarity));
-        String fields[] = {"Title", "Abstract"};
+        String[] fields = {"Title", "Abstract"};
         String queryString = QueryParser.escape(cranQuery);
         Map<String, Analyzer> map = new HashMap<>();
         map.put("Abstract", new edu.uniba.di.lacam.swap.donato.meoli.analyzer.Analyzer(getStopWordSet()));
-        Analyzer analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(Version.LATEST), map);
+        Analyzer analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(), map);
         QueryParser queryParser = new MultiFieldQueryParser(fields, analyzer);
         Query query = queryParser.parse(queryString);
         TopDocs topDocs = indexSearcher.search(query, 1000);
@@ -145,9 +146,9 @@ public class SearchEngine {
     }
 
     /**
-     * Chiude l'indice invertito.
+     * Closes the inverted index.
      *
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @throws IOException exception raised following a missed or interrupted IO operation
      */
     public void close() throws IOException {
         indexWriter.close();

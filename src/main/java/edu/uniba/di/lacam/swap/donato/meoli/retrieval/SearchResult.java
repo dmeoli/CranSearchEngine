@@ -1,22 +1,22 @@
 package edu.uniba.di.lacam.swap.donato.meoli.retrieval;
 
 /**
- * La classe {@code SearchResult} modella un risultato della ricerca.
+ * The {@code SearchResult} class models a search result.
  *
  * @author Donato Meoli
  */
 public class SearchResult {
 
-    private String id;
-    private float score;
-    private int rank;
+    private final String id;
+    private final float score;
+    private final int rank;
 
     /**
-     * Costruisce un risultato della ricerca.
+     * Build a search result.
      *
-     * @param id    numero identificativo del documento
-     * @param score score del documento
-     * @param rank  rank del documento
+     * @param id    identification number of the document
+     * @param score score of the document
+     * @param rank  document rank
      */
     public SearchResult(String id, float score, int rank) {
         this.id = id;
@@ -25,27 +25,27 @@ public class SearchResult {
     }
 
     /**
-     * Restituisce il numero identificativo del documento.
+     * Returns the identification number of the document.
      *
-     * @return numero identificativo del documento
+     * @return identification number of the document
      */
     public String getID() {
         return id;
     }
 
     /**
-     * Restituisce lo score del documento.
+     * Returns the score of the document.
      *
-     * @return score del documento
+     * @return score of the document
      */
     public float getScore() {
         return score;
     }
 
     /**
-     * Restituisce il rank del documento.
+     * Returns the rank of the document.
      *
-     * @return rank del documento
+     * @return document rank
      */
     public int getRank() {
         return rank;

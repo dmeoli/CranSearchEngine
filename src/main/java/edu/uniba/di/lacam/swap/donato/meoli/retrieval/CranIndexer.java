@@ -4,22 +4,23 @@ import edu.uniba.di.lacam.swap.donato.meoli.collection.CranDoc;
 import edu.uniba.di.lacam.swap.donato.meoli.collection.CranQuery;
 
 import java.io.*;
+import java.util.Objects;
 
 /**
- * La classe {@code Indexer} modella l'indice invertito.
+ * The {@code Indexer} class models the inverted index.
  *
  * @author Donato Meoli
  */
 public class CranIndexer {
 
-    private String docsPath;
-    private String queriesPath;
+    private final String docsPath;
+    private final String queriesPath;
 
     /**
-     * Costruisce l'indice invertito.
+     * Constructs the inverted index.
      *
-     * @param docsPath    percorso della cartella contenente i 1400 documenti della collezione Cranfield
-     * @param queriesPath percorso della cartella contenente le 225 query per la collezione Cranfield
+     * @param docsPath    path to the folder containing the 1400 documents of the Cranfield collection
+     * @param queriesPath path to the folder containing the 225 queries for the Cranfield collection
      */
     public CranIndexer(String docsPath, String queriesPath) {
         this.docsPath = docsPath;
@@ -27,12 +28,13 @@ public class CranIndexer {
     }
 
     /**
-     * Crea i 1400 documenti a partire dalla collezione di documenti Cranfield.
+     * Create the 1400 documents from the Cranfield document collection.
      *
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @throws IOException exception raised following a missed or interrupted IO operation
      */
     public void createDocs() throws IOException {
-        InputStreamReader inputStreamReader = new InputStreamReader(getClass().getResourceAsStream(File.separator + "cran.all.1400"));
+        InputStreamReader inputStreamReader = new InputStreamReader(
+                Objects.requireNonNull(getClass().getResourceAsStream(File.separator + "cran.all.1400")));
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String doc = bufferedReader.readLine();
         int i = 1;
@@ -51,12 +53,13 @@ public class CranIndexer {
     }
 
     /**
-     * Crea le 225 query a partire dalla collezione di query Cranfield.
+     * Build the 225 queries from the Cranfield query collection.
      *
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @throws IOException exception raised following a missed or interrupted IO operation
      */
     public void createQueries() throws IOException {
-        InputStreamReader inputStreamReader = new InputStreamReader(getClass().getResourceAsStream(File.separator + "cran.qry"));
+        InputStreamReader inputStreamReader = new InputStreamReader(
+                Objects.requireNonNull(getClass().getResourceAsStream(File.separator + "cran.qry")));
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String query = bufferedReader.readLine();
         int i = 1;
@@ -75,12 +78,12 @@ public class CranIndexer {
     }
 
     /**
-     * Crea un oggetto {@code CranDoc} a partire dal documento della
-     * collezione Cranfield identificato dall'id specificato.
+     * Creates an object {@code CranDoc} starting from the Cranfield
+     * collection document identified by the specified id.
      *
-     * @param id numero identificativo del documento
-     * @return oggetto {@code CranDoc} rappresentante il documento identificato dall'id specificato
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @param id identification number of the document
+     * @return object {@code CranDoc} representing the document identified by the specified id
+     * @throws IOException exception raised following a missed or interrupted IO operation
      */
     public CranDoc makeDoc(int id) throws IOException {
         FileReader fileReader = new FileReader(new File(docsPath + File.separator + "cran.doc." + id));
@@ -131,12 +134,12 @@ public class CranIndexer {
     }
 
     /**
-     * Crea un oggetto {@code CranQuery} a partire dalla query della
-     * collezione Cranfield identificata dall'id specificato.
+     * Creates a {@code CranQuery} object starting from the Cranfield
+     * collection query identified by the specified id.
      *
-     * @param id numero identificativo della query
-     * @return oggetto {@code CranQuery} rappresentante la query identificata dall'id specificato
-     * @throws IOException eccezione sollevata in seguito ad una mancata o interrotta operazione di I/O
+     * @param id query identification number
+     * @return {@code CranQuery} object representing the query identified by the specified id
+     * @throws IOException exception raised following a missed or interrupted IO operation
      */
     public CranQuery makeQuery(int id) throws IOException {
         FileReader fileReader = new FileReader(new File(queriesPath + File.separator + "cran.qry." + id));

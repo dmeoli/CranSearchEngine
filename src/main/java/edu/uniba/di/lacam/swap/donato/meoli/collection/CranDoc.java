@@ -1,26 +1,26 @@
 package edu.uniba.di.lacam.swap.donato.meoli.collection;
 
 /**
- * La classe {@code CranDoc} modella un documento della collezione Cranfield.
+ * The {@code CranDoc} class models a document from the Cranfield collection.
  *
  * @author Donato Meoli
  */
 public class CranDoc {
 
-    private String id;
-    private String title;
-    private String authors;
-    private String department;
-    private String abstr;
+    private final String id;
+    private final String title;
+    private final String authors;
+    private final String department;
+    private final String abstr;
 
     /**
-     * Costruisce un documento della collezione Cranfield.
+     * Constructs a document from the Cranfield collection.
      *
-     * @param id         numero identificativo del documento
-     * @param title      titolo del documento
-     * @param authors    autore/i del documento
-     * @param department nome del dipartimento addetto alla stesura del documento
-     * @param abstr      abstract del documento
+     * @param id         identification number of the document
+     * @param title      title of the document
+     * @param authors    authors of the document
+     * @param department name of the department responsible for drafting the document
+     * @param abstr      document abstract
      */
     public CranDoc(String id, String title, String authors, String department, String abstr) {
         this.id = id;
@@ -31,45 +31,45 @@ public class CranDoc {
     }
 
     /**
-     * Restituisce il numero identificativo del documento.
+     * Returns the identification number of the document.
      *
-     * @return numero identificativo del documento
+     * @return identification number of the document
      */
     public String getID() {
         return id;
     }
 
     /**
-     * Restituisce il titolo del documento.
+     * Returns the title of the document.
      *
-     * @return titolo del documento
+     * @return title of the document
      */
     public String getTitle() {
         return title;
     }
 
     /**
-     * Restituisce l'autore/gli autori del documento.
+     * Returns the author(s) of the document.
      *
-     * @return autore/i del documento
+     * @return author(s) of the document
      */
     public String getAuthors() {
         return authors;
     }
 
     /**
-     * Restituisce il nome del dipartimento addetto alla stesura del documento.
+     * Returns the name of the department responsible for drafting the document.
      *
-     * @return dipartimento addetto alla stesura del documento
+     * @return department responsible for drafting the document
      */
     public String getDepartment() {
         return department;
     }
 
     /**
-     * Restituisce l'abstract del documento.
+     * Returns the abstract of the document.
      *
-     * @return abstract del documento
+     * @return document abstract
      */
     public String getAbstr() {
         return abstr;
