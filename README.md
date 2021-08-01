@@ -4,6 +4,13 @@ CranSearchEngine is a search engine for the [Cranfield collection](http://ir.dcs
 developed during the Information Retrieval course @ [Department of Computer Science](http://www.uniba.it/ricerca/dipartimenti/informatica) 
 @ [University of Bari "Aldo Moro"](http://www.uniba.it/) under the supervision of dr. [Pierpaolo Basile](http://www.di.uniba.it/~swap/index.php?n=Membri.Basile).
 
+## Prerequisites
+
+By default, requirement for compilation are:
+
+ - JDK 8+
+ - Maven
+
 ## Built with Maven
 
 To create a jar file with dependencies:
