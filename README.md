@@ -1,4 +1,4 @@
-# CranSearchEngine [![Build Status](https://app.travis-ci.com/dmeoli/CranSearchEngine.svg?branch=master)](https://app.travis-ci.com/github/dmeoli/CranSearchEngine)
+# CranSearchEngine
 
 CranSearchEngine is a search engine for the [Cranfield collection](http://ir.dcs.gla.ac.uk/resources/test_collections/cran) 
 developed during the Information Retrieval course @ [Department of Computer Science](http://www.uniba.it/ricerca/dipartimenti/informatica) 
